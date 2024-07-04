@@ -1,0 +1,11 @@
+export const orange = "#FFA500";
+export const red = "#FF0000";
+export const green = "#00FF00";
+export const blue = "#0000FF";
+export const AppbarColor = "#626060";
+export const gray = "#edeef0";
+export const senderColor = "#0d6f78";
+export const senderColorHover = "#c4eef2";
+export const lightblue = "#2694ab";
+export const lightGray = "#e9f0ef"; // used in group
+export const matBlack = "#000000";
