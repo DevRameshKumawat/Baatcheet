@@ -9,3 +9,4 @@ export const senderColorHover = "#c4eef2";
 export const lightblue = "#2694ab";
 export const lightGray = "#e9f0ef"; // used in group
 export const matBlack = "#000000";
+export const bgGradient = "linear-gradient(to top, #33ccff 0%, #ff99cc 100%)";

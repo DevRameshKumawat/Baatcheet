@@ -23,7 +23,8 @@ import {
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Link } from "../components/styles/StyledComponents";
 import AvatarCard from "../components/shared/AvatarCard";
-import { SampleChats } from "../constants/SampleData";
+import { SampleChats, sampleUsers } from "../constants/SampleData";
+import UserItem from "../components/shared/UserItem";
 
 const Group = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -44,8 +45,10 @@ const Group = () => {
   const isAddMember = false;
 
   useEffect(() => {
-    setGroupName(`Group Name ${ChatId}`);
-    setGroupNameUpdatedValue(`Group Name ${ChatId}`);
+    if (ChatId) {
+      setGroupName(`Group Name ${ChatId}`);
+      setGroupNameUpdatedValue(`Group Name ${ChatId}`);
+    }
 
     return () => {
       setGroupName("");
@@ -88,6 +91,10 @@ const Group = () => {
 
   const deleteHandler = () => {
     console.log("delete");
+  };
+
+  const removeMemberHandler = () => {
+    console.log("remove member");
   };
 
   const GroupName = (
@@ -225,11 +232,22 @@ const Group = () => {
                 boxSizing={"border-box"}
                 padding={{ sm: "1rem", xs: "0", md: "1rem 4rem" }}
                 spacing={"1rem"}
-                bgcolor={"bisque"}
                 height={"50vh"}
                 overflow={"auto"}
               >
-                {/* Members */}
+                {sampleUsers.map((user) => (
+                  <UserItem
+                    key={user._id}
+                    user={user}
+                    isAdded
+                    styling={{
+                      boxShadow: "0 0 0.5rem rgba(0, 0, 0, 0.2)",
+                      padding: "1rem 2rem",
+                      borderRadius: "1rem",
+                    }}
+                    handler={removeMemberHandler}
+                  />
+                ))}
               </Stack>
               {ButtonGroup}
             </>
